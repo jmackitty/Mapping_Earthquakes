@@ -30,7 +30,7 @@ let baseMaps = {
   L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/<jmackitty>/Mapping_Earthquakes/majorAirports.json";
+let airportData = "https://raw.githubusercontent.com/jmackitty/Mapping_Earthquakes/Mapping_Single_Points/majorAirports.json";
 
 
 // Grabbing our GeoJSON data.
@@ -40,30 +40,5 @@ d3.json(airportData).then(function(data) {
   L.geoJSON(data).addTo(map);
 });
 
-// L.geoJSON(sanFranAirport, {
-//      onEachFeature: function(feature, layer) {
-//         console.log(layer);
-//         layer.bindPopup();
-//          }
-    // })
-    //   .bindPopup("<h2>" + feature.properties.city + "</h2>");
-// .addTo(map);
-
-
-
-// Get data from cities.js
-// let cityData = cities;
-
-  
-// Loop through the cities array and create one marker for each city.
-// cityData.forEach(function(city) {
-//     console.log(city)
-//     L.circleMarker(city.location, {
-//         radius: city.population/100000
-//     })
-//     .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
-//   .addTo(map);
-// });
-// Then we add our 'graymap' tile layer to the map.
 
 
