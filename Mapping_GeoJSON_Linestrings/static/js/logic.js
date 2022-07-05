@@ -29,28 +29,19 @@ let baseMaps = {
   L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
-// let airportData = "https://raw.githubusercontent.com/jmackitty/Mapping_Earthquakes/Mapping_Single_Points/majorAirports.json";
+let torontoHoods = "https://raw.githubusercontent.com/jmackitty/Mapping_Earthquakes/Mapping_Single_Points/torontoNeighborhoods.json";
 
 // Accessing the Toronto airline routes GeoJSON URL.
 // let torontoData = "https://raw.githubusercontent.com/jmackitty/Mapping_Earthquakes/Mapping_Single_Points/torontoRoutes.json";
 
 
 // Grabbing our GeoJSON data.
-// d3.json(torontoData).then(function(data) {
-//     console.log(data);
-//   // Creating a GeoJSON layer with the retrieved data.
-//   L.geoJSON(data, {
-//     style:myStyle,
-//     color: "#ffffa1",
-//     weight: 2,
-//     onEachFeature: function(feature, layer){
-//         layer.bindPopup("<h3> Airline:" + feature.properties.airline +"</h3> <hr><h3> Destination: "
-//         + feature.properties.dst + "</h3>");
-//     }
-//   })
-  
-//   .addTo(map);
-// });
+d3.json(torontoHoods).then(function(data) {
+    console.log(data);
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJSON(data) .addTo(map);
+
+});
   
 
 
