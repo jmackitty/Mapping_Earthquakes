@@ -127,7 +127,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
                     "#ea2c2c"
                 ];
 
-            // loop through our density intervals and generate a label with a colored square for each interval
+            // Looping through our intervals to generate a label with a colored square for each interval.
             for (var i = 0; i < magnitudes.length; i++) {
                 console.log(colors[i]);
                 div.innerHTML +=
