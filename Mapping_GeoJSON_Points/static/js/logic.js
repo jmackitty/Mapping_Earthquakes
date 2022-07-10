@@ -20,25 +20,48 @@ let baseMaps = {
     Dark: dark
   };
 
-  let map = L.map('mapid', {
-    center: [30, 30],
-    zoom: 2,
-    layers: [streets]
-  });
-
+  // let map = L.map('mapid', {
+  //   center: [30, 30],
+  //   zoom: 2,
+  //   layers: [streets]
+  // });
+// Create the map object with center at the San Francisco airport.
+let map = L.map('mapid').setView([37.5, -122.5], 10);
   // Pass our map layers into our layers control and add the layers control to the map.
-  L.control.layers(baseMaps).addTo(map);
+  L.control.layers(baseMaps).addTo(map); 
+  dark.addTo(map)
 
 // Accessing the airport GeoJSON URL
 let airportData = "https://raw.githubusercontent.com/jmackitty/Mapping_Earthquakes/Mapping_Single_Points/majorAirports.json";
-
+// Add GeoJSON data.
+let sanFranAirport =
+{"type":"FeatureCollection","features":[{
+    "type":"Feature",
+    "properties":{
+        "id":"3469",
+        "name":"San Francisco International Airport",
+        "city":"San Francisco",
+        "country":"United States",
+        "faa":"SFO",
+        "icao":"KSFO",
+        "alt":"13",
+        "tz-offset":"-8",
+        "dst":"A",
+        "tz":"America/Los_Angeles"},
+        "geometry":{
+            "type":"Point",
+            "coordinates":[-122.375,37.61899948120117]}}
+]};
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
-    console.log(data);
-  // Creating a GeoJSON layer with the retrieved data.
-  L.geoJSON(data).addTo(map);
-});
+L.geoJSON(sanFranAirport).addTo(map);
+
+// Grabbing our GeoJSON data.
+// d3.json(airportData).then(function(data) {
+//     console.log(data);
+//   // Creating a GeoJSON layer with the retrieved data.
+//   L.geoJSON(data).addTo(map);
+// });
 
 
 
